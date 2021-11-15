@@ -13,6 +13,8 @@ public class PlayerCollision : MonoBehaviour
     [Header("Checks")]
     [HideInInspector]
     public bool onGround;
+    [HideInInspector]
+    public bool isKnockback = false;
 
     [Space]
 
@@ -31,7 +33,8 @@ public class PlayerCollision : MonoBehaviour
 
     void FixedUpdate()
     {
-        onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, checkerRadius, groundLayer);
+        if(!isKnockback)
+            onGround = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, checkerRadius, groundLayer);
     }
 
     private void OnDrawGizmos()

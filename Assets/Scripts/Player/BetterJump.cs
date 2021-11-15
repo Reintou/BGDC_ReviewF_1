@@ -19,7 +19,7 @@ public class BetterJump : MonoBehaviour
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier) * Time.deltaTime;
         }
-        else if(rb.velocity.y > 0 && !Input.GetKey(KeyCode.Z))
+        else if((rb.velocity.y > 0 && !Input.GetKey(KeyCode.Z)) || GetComponent<PlayerCollision>().isKnockback)
         {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier) * Time.deltaTime;
         }

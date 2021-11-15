@@ -143,4 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c3b165e70d336846abcd77fd876b113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockbackForce: -3
+  knockbackForce: -2

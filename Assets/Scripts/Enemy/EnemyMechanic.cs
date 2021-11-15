@@ -29,7 +29,9 @@ public class EnemyMechanic : MonoBehaviour
     {
         _collision.GetComponent<PlayerMovement>().canMove = false;
         _collision.GetComponent<PlayerCollision>().onGround = false;
+        _collision.GetComponent<PlayerCollision>().isKnockback = true;
         yield return new WaitForSeconds(0.5f);
         _collision.GetComponent<PlayerMovement>().canMove = true;
+        _collision.GetComponent<PlayerCollision>().isKnockback = false;
     }
 }

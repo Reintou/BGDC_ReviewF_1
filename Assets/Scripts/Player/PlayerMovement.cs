@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.X) && !hasDashed)
         {
-            if(movementDirection.x != 0 || movementDirection.y != 0)
+            if(movementDirection.x != 0 || movementDirection.y != 0 && canMove)
             {
                 Dash();
             }
@@ -78,6 +78,9 @@ public class PlayerMovement : MonoBehaviour
         {
             groundTouch = false;
         }
+
+        if (!canMove)
+            return;
 
         if (movementDirection.x > 0)
         {
