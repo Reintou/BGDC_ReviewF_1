@@ -12,7 +12,7 @@ public class EnemyMechanic : MonoBehaviour
         if(_collision.CompareTag("Player"))
         {
             var collrb = _collision.GetComponent<Rigidbody2D>();
-            StartCoroutine(KnockbackPlayer(_collision));
+            _collision.GetComponent<PlayerCollision>().StartKnockback();
             Vector2 diff = (transform.position - _collision.transform.position).normalized;
             if(diff.x * knockbackForce > -2.3f && diff.x * knockbackForce < 2.3f)
             {
@@ -23,15 +23,5 @@ public class EnemyMechanic : MonoBehaviour
                 collrb.AddForce(new Vector2(diff.x, -3f) * knockbackForce, ForceMode2D.Impulse);
             }
         }
-    }
-
-    IEnumerator KnockbackPlayer(GameObject _collision)
-    {
-        _collision.GetComponent<PlayerMovement>().canMove = false;
-        _collision.GetComponent<PlayerCollision>().onGround = false;
-        _collision.GetComponent<PlayerCollision>().isKnockback = true;
-        yield return new WaitForSeconds(0.5f);
-        _collision.GetComponent<PlayerMovement>().canMove = true;
-        _collision.GetComponent<PlayerCollision>().isKnockback = false;
     }
 }

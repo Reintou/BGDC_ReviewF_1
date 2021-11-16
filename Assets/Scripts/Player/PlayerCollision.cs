@@ -42,4 +42,19 @@ public class PlayerCollision : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere((Vector2)transform.position + bottomOffset, checkerRadius);
     }
+
+    public void StartKnockback()
+    {
+        StartCoroutine(KnockbackPlayer());
+    }
+
+    IEnumerator KnockbackPlayer()
+    {
+        GetComponent<PlayerMovement>().canMove = false;
+        onGround = false;
+        isKnockback = true;
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<PlayerMovement>().canMove = true;
+        isKnockback = false;
+    }
 }

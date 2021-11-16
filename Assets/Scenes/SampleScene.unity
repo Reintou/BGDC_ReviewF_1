@@ -2402,6 +2402,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   onGround: 0
+  isKnockback: 0
   checkerRadius: 0.4
   bottomOffset: {x: -0.1, y: -0.7}
   posBottomOffset: {x: 0, y: 0}
